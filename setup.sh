@@ -17,6 +17,9 @@ sed -i '' 's/MAIL_HOST=mailhog/MAIL_HOST=localhost/g' .env
 # migrate database
 php artisan migrate --seed
 
+# create symbolic link
+php artisan storage:link
+
 # install node dependencies
 npm install
 
