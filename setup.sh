@@ -15,7 +15,7 @@ sed -i '' 's/DB_PASSWORD=/DB_PASSWORD=root/g' .env
 sed -i '' 's/MAIL_HOST=mailhog/MAIL_HOST=localhost/g' .env
 
 # migrate database
-php artisan migrate
+php artisan migrate --seed
 
 # install node dependencies
 npm install
