@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|hk']], function () {
     Route::get('/', function () {
         return view('welcome');
-    });
+    })->name('home');
 });
 
 Route::middleware([
