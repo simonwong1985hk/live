@@ -14,7 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(app()->getLocale());
+});
+
+Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|hk']], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
 });
 
 Route::middleware([
