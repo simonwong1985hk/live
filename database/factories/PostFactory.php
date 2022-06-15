@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +18,16 @@ class PostFactory extends Factory
      */
     public function definition()
     {
+        $title = $this->faker->sentence;
+        $slug = Str::slug($title, '-');
+        $body = $this->faker->paragraph;
+        $user_id = User::all()->random();
+
         return [
-            //
+            'title' => $title,
+            'slug' => $slug,
+            'body' => $body,
+            'user_id' => $user_id,
         ];
     }
 }
