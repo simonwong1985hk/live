@@ -48,6 +48,11 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     <a href="{{ route('posts.edit', $post) }}" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                    <form method="POST" action="{{ route('posts.destroy', $post) }}" class="inline-block">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" onclick="return confirm('Are you sure?')" class="font=medium text-red-600 hover:underline">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
