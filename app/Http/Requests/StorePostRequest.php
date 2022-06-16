@@ -27,6 +27,7 @@ class StorePostRequest extends FormRequest
             'title' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:posts',
             'body' => 'required|string',
+            'category_id' => 'required|exists:categories,id',
         ];
     }
 }
