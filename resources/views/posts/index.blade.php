@@ -60,6 +60,9 @@
                     </table>
                 </div>
                 <!-- table to here -->
+                <div class="pagination m-4">
+                    {{ $posts->links() }}
+                </div>
             </div>
         </div>
     </div>
