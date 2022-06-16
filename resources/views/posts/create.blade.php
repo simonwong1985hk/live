@@ -30,6 +30,16 @@
                             <x-textarea id="body" class="block mt-1 w-full" name="body" required autocomplete="body">{{ old('body') }}</x-textarea>
                         </div>
 
+                        <div class="mt-4">
+                            <x-jet-label for="category_id" value="{{ __('Category') }}" />
+                            <select id="category_id" name="category_id" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                                <option selected disabled>Choose a category</option>
+                                @foreach (\App\Models\Category::orderBy('name')->get() as $category)
+                                <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <div class="flex mt-4">
                             <x-jet-button>
                                 {{ __('Save') }}
