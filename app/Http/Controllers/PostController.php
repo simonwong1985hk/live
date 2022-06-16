@@ -27,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -38,7 +38,9 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //
+        auth()->user()->posts()->create($request->validated());
+
+        return redirect()->route('posts.index');
     }
 
     /**
