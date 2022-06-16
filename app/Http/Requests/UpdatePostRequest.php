@@ -33,6 +33,7 @@ class UpdatePostRequest extends FormRequest
                 Rule::unique('posts')->ignore($this->post),
             ],
             'body' => 'required|string',
+            'category_id' => 'required|exists:categories,id',
         ];
     }
 }
