@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,12 +23,14 @@ class PostFactory extends Factory
         $slug = Str::slug($title, '-');
         $body = $this->faker->paragraph;
         $user_id = User::all()->random();
+        $category_id = Category::all()->random();
 
         return [
             'title' => $title,
             'slug' => $slug,
             'body' => $body,
             'user_id' => $user_id,
+            'category_id' => $category_id,
         ];
     }
 }
