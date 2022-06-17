@@ -12,7 +12,7 @@
 
                     <x-jet-validation-errors class="mb-4" />
 
-                    <form method="POST" action="{{ route('posts.store') }}">
+                    <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div>
@@ -23,6 +23,11 @@
                         <div class="mt-4">
                             <x-jet-label for="slug" value="{{ __('Slug') }}" />
                             <x-jet-input id="slug" class="block mt-1 w-full" type="text" name="slug" :value="old('slug')" required autocomplete="slug" />
+                        </div>
+
+                        <div class="mt-4">
+                            <x-jet-label for="thumbnail" value="{{ __('Thumbnail') }}" />
+                            <x-jet-input id="thumbnail" class="mt-1 text-gray-900 border border-gray-300 cursor-pointer" type="file" name="thumbnail" :value="old('thumbnail')" />
                         </div>
 
                         <div class="mt-4">
