@@ -24,6 +24,9 @@
                                     Slug
                                 </th>
                                 <th scope="col" class="px-6 py-3">
+                                    Thumbnail
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     Body
                                 </th>
                                 <th scope="col" class="px-6 py-3">
@@ -42,6 +45,9 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $post->slug }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <img src="{{ asset($post->thumbnail) }}" alt="{{ $post->title }}" class="w-10">
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $post->body }}
