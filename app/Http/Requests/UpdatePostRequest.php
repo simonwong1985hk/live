@@ -32,6 +32,7 @@ class UpdatePostRequest extends FormRequest
                 'max:255',
                 Rule::unique('posts')->ignore($this->post),
             ],
+            'thumbnail' => 'image|mimes:bpm,gif,jpeg,jpg,jpe,png,svg,svgz|max:2048',
             'body' => 'required|string',
             'category_id' => 'required|exists:categories,id',
         ];
