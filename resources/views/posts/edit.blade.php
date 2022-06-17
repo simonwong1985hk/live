@@ -26,12 +26,12 @@
                             <x-jet-input id="slug" class="block mt-1 w-full" type="text" name="slug" :value="old('slug') ?? $post->slug" required autocomplete="slug" />
                         </div>
 
-                        <div class="mt-4 flex">
+                        <div class="mt-4 flex flex-wrap">
                             <div>
                                 <x-jet-label for="thumbnail" value="{{ __('Thumbnail') }}" />
                                 <x-jet-input id="thumbnail" class="mt-1 text-gray-900 border border-gray-300 cursor-pointer" type="file" name="thumbnail" :value="old('thumbnail', $post->thumbnail)" />
                             </div>
-                            <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->thumbnail }}" class="w-24 rounded ml-4" />
+                            <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->thumbnail }}" class="w-24 rounded mt-2 sm:ml-4 sm:mt-0" />
                         </div>
 
                         <div class="mt-4">
