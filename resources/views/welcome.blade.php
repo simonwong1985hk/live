@@ -412,7 +412,11 @@
             <a href="{{ route(Route::currentRouteName(), ['locale' => $locale]) }}" class="ml-2 text-sm text-gray-700 dark:text-gray-500 {{ app()->getLocale() == $locale ? '' : 'underline' }}">{{ strtoupper($locale) }}</a>
             @endforeach
             @auth
-            <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{ __('Dashboard') }}</a>
+            @can('admin')
+            <a href="{{ route('dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{ __('Dashboard') }}</a>
+            @else
+            <a href="{{ route('profile.show') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{ __('Profile') }}</a>
+            @endcan
             @else
             <a href="{{ route('login') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">{{ __('Log in') }}</a>
 
