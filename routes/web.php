@@ -27,7 +27,8 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|hk']], functio
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified'
+    'verified',
+    'can:admin',
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
