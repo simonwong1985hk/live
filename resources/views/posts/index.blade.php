@@ -14,6 +14,7 @@
                         <x-link href="{{ route('posts.create') }}" class="m-4">Add new post</x-link>
                         <x-search />
                     </div>
+                    @if ($posts->count())
                     <table class="w-full text-sm text-left text-gray-500">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                             <tr>
@@ -72,7 +73,9 @@
                 <div class="pagination m-4">
                     {{ $posts->links() }}
                 </div>
+                @else
+                <p class="text-center m-4 font-semibold text-xl text-gray-800 leading-tight">No posts found.</p>
+                @endif
             </div>
         </div>
-    </div>
 </x-app-layout>
