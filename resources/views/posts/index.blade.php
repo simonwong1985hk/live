@@ -74,7 +74,7 @@
                     {{ $posts->links() }}
                 </div>
                 @else
-                <p class="text-center m-4 font-semibold text-xl text-gray-800 leading-tight">No posts found.</p>
+                <p class="text-center m-4 font-semibold text-xl text-red-600 leading-tight">No posts found.</p>
                 @endif
             </div>
         </div>
