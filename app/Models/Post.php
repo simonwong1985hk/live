@@ -16,6 +16,19 @@ class Post extends Model
      */
     protected $fillable = ['title', 'slug', 'thumbnail', 'body', 'category_id'];
 
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when(
+            $filters['search'] ?? false,
+            fn ($query, $search) =>
+            $query->where(
+                fn ($query) =>
+                $query->where('title', 'like', '%' . $search . '%')
+                    ->orWhere('body', 'like', '%' . $search . '%')
+            )
+        );
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
