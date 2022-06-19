@@ -44,7 +44,7 @@ class CategoryController extends Controller
     {
         Category::create($request->validated());
 
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.index')->with('message', 'Category created successfully');
     }
 
     /**
@@ -80,7 +80,7 @@ class CategoryController extends Controller
     {
         $category->update($request->validated());
 
-        return back();
+        return back()->with('message', 'Category updated successfully');
     }
 
     /**
@@ -92,10 +92,10 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         if ($category->posts->count() > 0) {
-            return back()->with('error', 'Cannot delete category with posts');
+            return back()->with('message', 'Cannot delete category with posts');
         } else {
             $category->delete();
-            return back();
+            return back()->with('message', 'Category deleted successfully');
         }
     }
 }

@@ -46,7 +46,7 @@ class PostController extends Controller
             'thumbnail' => $request->file('thumbnail')?->store('thumbnails'),
         ]));
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')->with('message', 'Post created successfully');
     }
 
     /**
@@ -84,7 +84,7 @@ class PostController extends Controller
             'thumbnail' => $request->validated('thumbnail') ? $request->file('thumbnail')?->store('thumbnails') : $post->thumbnail,
         ]));
 
-        return back();
+        return back()->with('message', 'Post updated successfully');
     }
 
     /**
@@ -97,6 +97,6 @@ class PostController extends Controller
     {
         $post->delete();
 
-        return back();
+        return back()->with('message', 'Post deleted successfully');
     }
 }

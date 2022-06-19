@@ -42,5 +42,7 @@
         @stack('modals')
 
         @livewireScripts
+
+        <x-message />
     </body>
 </html>
