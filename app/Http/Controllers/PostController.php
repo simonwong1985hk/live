@@ -43,7 +43,7 @@ class PostController extends Controller
     public function store(StorePostRequest $request)
     {
         auth()->user()->posts()->create(array_merge($request->validated(), [
-            'thumbnail' => $request->file('thumbnail')->store('thumbnails'),
+            'thumbnail' => $request->file('thumbnail')?->store('thumbnails'),
         ]));
 
         return redirect()->route('posts.index');
@@ -81,7 +81,7 @@ class PostController extends Controller
     public function update(UpdatePostRequest $request, Post $post)
     {
         $post->update(array_merge($request->validated(), [
-            'thumbnail' => $request->validated('thumbnail') ? $request->file('thumbnail')->store('thumbnails') : $post->thumbnail,
+            'thumbnail' => $request->validated('thumbnail') ? $request->file('thumbnail')?->store('thumbnails') : $post->thumbnail,
         ]));
 
         return back();
