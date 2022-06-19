@@ -18,7 +18,7 @@
 
                         <div>
                             <x-jet-label for="title" value="{{ __('Title') }}" />
-                            <x-jet-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title') ?? $post->title" required autofocus autocomplete="name" />
+                            <x-jet-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title') ?? $post->title" required autofocus autocomplete="title" />
                         </div>
 
                         <div class="mt-4">
