@@ -15,7 +15,13 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::latest()
+            ->orderBy('id', 'desc')
+            ->filter(request(['search']))
+            ->paginate(10)
+            ->withQueryString();
+
+        return view('categories.index', ['categories' => $categories]);
     }
 
     /**
@@ -25,7 +31,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -36,7 +42,9 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        Category::create($request->validated());
+
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -58,7 +66,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('categories.edit', ['category' => $category]);
     }
 
     /**
@@ -70,7 +78,9 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $category->update($request->validated());
+
+        return back();
     }
 
     /**
@@ -81,6 +91,11 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        if ($category->posts->count() > 0) {
+            return back()->with('error', 'Cannot delete category with posts');
+        } else {
+            $category->delete();
+            return back();
+        }
     }
 }

@@ -16,6 +16,9 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.*')">
+                        {{ __('Category') }}
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.*')">
                         {{ __('Post') }}
                     </x-jet-nav-link>
@@ -144,6 +147,9 @@
             @can('admin')
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.*')">
+                {{ __('Category') }}
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.*')">
                 {{ __('Post') }}
