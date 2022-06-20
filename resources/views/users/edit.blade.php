@@ -38,7 +38,7 @@
                             <x-jet-label for="roles" value="{{ __('Roles') }}" />
                             @foreach (\App\Models\Role::orderBy('name')->get() as $role)
                             <div class="flex items-center mb-2">
-                                <input id="{{ $role->name }}" type="checkbox" name="roles[]" value="{{ $role->id }}" @checked(in_array($role->id, old('roles', $user->roles->pluck('id')->all()))) class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <input id="{{ $role->name }}" type="checkbox" name="roles[]" value="{{ $role->id }}" @checked(in_array($role->id, old('roles', $user->roles->pluck('id')->all()))) class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 focus:ring-2">
                                 <label for="{{ $role->name }}" class="ml-2 text-gray-900">{{ $role->name }}</label>
                             </div>
                             @endforeach
