@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
         User::factory()
             ->hasAttached(Role::whereIn('name', ['admin'])->get())
             ->create([
-                'name' => 'admin',
+                'name' => 'Admin',
                 'email' => 'admin@example.com',
                 'password' => bcrypt('password'),
             ]);
@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
         User::factory()
             ->hasAttached(Role::whereIn('name', ['user'])->get())
             ->create([
-                'name' => 'user',
+                'name' => 'User',
                 'email' => 'user@example.com',
                 'password' => bcrypt('password'),
             ]);
