@@ -31,7 +31,7 @@
                                 <x-jet-label for="profile_photo_path" value="{{ __('Profile Photo') }}" />
                                 <x-jet-input id="profile_photo_path" class="mt-1 text-gray-900 border border-gray-300 cursor-pointer" type="file" name="profile_photo_path" :value="old('profile_photo_path', $user->profile_photo_path)" />
                             </div>
-                            <img src="{{ asset('storage/' . $user->profile_photo_path) }}" alt="{{ $user->name }}" class="w-24 rounded mt-2 sm:ml-4 sm:mt-0" />
+                            <img src="{{ asset($user->profile_photo_path) }}" alt="{{ $user->name }}" class="w-24 rounded mt-2 sm:ml-4 sm:mt-0" />
                         </div>
 
                         <div class="mt-4">

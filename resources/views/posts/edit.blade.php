@@ -31,7 +31,7 @@
                                 <x-jet-label for="thumbnail" value="{{ __('Thumbnail') }}" />
                                 <x-jet-input id="thumbnail" class="mt-1 text-gray-900 border border-gray-300 cursor-pointer" type="file" name="thumbnail" :value="old('thumbnail', $post->thumbnail)" />
                             </div>
-                            <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="{{ $post->thumbnail }}" class="w-24 rounded mt-2 sm:ml-4 sm:mt-0" />
+                            <img src="{{ asset($post->thumbnail) }}" alt="{{ $post->title }}" class="w-24 rounded mt-2 sm:ml-4 sm:mt-0" />
                         </div>
 
                         <div class="mt-4">
