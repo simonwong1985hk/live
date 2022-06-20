@@ -16,6 +16,18 @@ class Role extends Model
      */
     protected $fillable = ['name'];
 
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when(
+            $filters['search'] ?? false,
+            fn ($query, $search) =>
+            $query->where(
+                fn ($query) =>
+                $query->where('name', 'like', '%' . $search . '%')
+            )
+        );
+    }
+
     /**
      * The users that belong to the role.
      */
