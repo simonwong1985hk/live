@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -87,8 +88,15 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
+        if ($request->hasFile('profile_photo_path')) {
+            Storage::delete($user->profile_photo_path);
+            $profile_photo_path = $request->file('profile_photo_path')?->store('profile-photos');
+        } else {
+            $profile_photo_path = $user->profile_photo_path;
+        }
+
         $user->update(array_merge($request->validated(), [
-            'profile_photo_path' => $request->validated('profile_photo_path') ? $request->file('profile_photo_path')?->store('profile-photos') : $user->profile_photo_path,
+            'profile_photo_path' => $profile_photo_path,
         ]));
 
         $user->roles()->sync($request->roles);
@@ -107,6 +115,7 @@ class UserController extends Controller
         if ($user->posts()->count() > 0) {
             return back()->with('message', 'Cannot delete user with posts');
         } else {
+            Storage::delete($user->profile_photo_path);
             $user->delete();
             return back()->with('message', 'User deleted successfully');
         }
