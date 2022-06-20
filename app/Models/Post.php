@@ -25,13 +25,16 @@ class Post extends Model
                 fn ($query) =>
                 $query->where('title', 'like', '%' . $search . '%')
                     ->orWhere('body', 'like', '%' . $search . '%')
+                    ->orWhereHas('author', fn ($query) =>
+                        $query->where('name', 'like', '%' . $search . '%')
+                    )
             )
         );
     }
 
-    public function user()
+    public function author()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function category()

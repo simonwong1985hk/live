@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -15,7 +16,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()
+        $posts = Post::with('author')
+            ->latest()
             ->orderBy('id', 'desc')
             ->filter(request(['search']))
             ->paginate(10)
@@ -42,7 +44,7 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        auth()->user()->posts()->create(array_merge($request->validated(), [
+        $request->user()->posts()->create(array_merge($request->validated(), [
             'thumbnail' => $request->file('thumbnail')?->store('thumbnails'),
         ]));
 
@@ -80,8 +82,15 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
+        if ($request->hasFile('thumbnail')) {
+            Storage::delete($post->thumbnail ?? '');
+            $thumbnail = $request->file('thumbnail')?->store('thumbnails');
+        } else {
+            $thumbnail = $post->thumbnail;
+        }
+
         $post->update(array_merge($request->validated(), [
-            'thumbnail' => $request->validated('thumbnail') ? $request->file('thumbnail')?->store('thumbnails') : $post->thumbnail,
+            'thumbnail' => $thumbnail,
         ]));
 
         return back()->with('message', 'Post updated successfully');
@@ -95,6 +104,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        Storage::delete($post->thumbnail ?? '');
+
         $post->delete();
 
         return back()->with('message', 'Post deleted successfully');

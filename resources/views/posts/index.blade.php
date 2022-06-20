@@ -34,6 +34,9 @@
                                     Body
                                 </th>
                                 <th scope="col" class="px-6 py-3">
+                                    Author
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     <span class="sr-only">Edit</span>
                                 </th>
                             </tr>
@@ -55,6 +58,9 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $post->body }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $post->author->name }}
                                 </td>
                                 <td class="px-6 py-4">
                                     <a href="{{ route('posts.edit', $post) }}" class="font-medium text-blue-600 hover:underline">Edit</a>
