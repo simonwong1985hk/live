@@ -89,7 +89,7 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user)
     {
         if ($request->hasFile('profile_photo_path')) {
-            Storage::delete($user->profile_photo_path);
+            Storage::delete($user->profile_photo_path ?? '');
             $profile_photo_path = $request->file('profile_photo_path')?->store('profile-photos');
         } else {
             $profile_photo_path = $user->profile_photo_path;
