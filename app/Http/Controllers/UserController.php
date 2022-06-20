@@ -115,7 +115,7 @@ class UserController extends Controller
         if ($user->posts()->count() > 0) {
             return back()->with('message', 'Cannot delete user with posts');
         } else {
-            Storage::delete($user->profile_photo_path);
+            Storage::delete($user->profile_photo_path ?? '');
             $user->delete();
             return back()->with('message', 'User deleted successfully');
         }
