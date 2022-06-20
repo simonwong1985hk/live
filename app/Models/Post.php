@@ -16,6 +16,10 @@ class Post extends Model
      */
     protected $fillable = ['title', 'slug', 'thumbnail', 'body', 'category_id'];
 
+    protected $attributes = [
+        'thumbnail' => 'https://ui-avatars.com/api/?name=img&length=3&color=7F9CF5&background=EBF4FF',
+    ];
+
     public function scopeFilter($query, array $filters)
     {
         $query->when(

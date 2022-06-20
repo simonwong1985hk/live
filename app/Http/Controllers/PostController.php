@@ -44,8 +44,14 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
+        if ($request->hasFile('thumbnail')) {
+            $thumbnail = $request->file('thumbnail')?->store('thumbnails');
+        } else {
+            $thumbnail = 'https://ui-avatars.com/api/?name=img&length=3&color=7F9CF5&background=EBF4FF';
+        }
+
         $request->user()->posts()->create(array_merge($request->validated(), [
-            'thumbnail' => $request->file('thumbnail')?->store('thumbnails'),
+            'thumbnail' => $thumbnail,
         ]));
 
         return redirect()->route('posts.index')->with('message', 'Post created successfully');
