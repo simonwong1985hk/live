@@ -15,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::latest()
+        $users = User::with('roles')
+            ->latest()
             ->orderBy('id', 'desc')
             ->filter(request(['search']))
             ->paginate(10)
