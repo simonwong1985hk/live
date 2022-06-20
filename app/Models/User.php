@@ -70,6 +70,9 @@ class User extends Authenticatable implements MustVerifyEmail
                 fn ($query) =>
                 $query->where('name', 'like', '%' . $search . '%')
                     ->orWhere('email', 'like', '%' . $search . '%')
+                    ->orWhereHas('roles', fn ($query) =>
+                        $query->where('name', 'like', '%' . $search . '%')
+                    )
             )
         );
     }
