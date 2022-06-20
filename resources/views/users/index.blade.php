@@ -54,7 +54,7 @@
                                     {{ $user->email }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <img src="{{ asset($user->profile_photo_path) }}" alt="{{ $user->name }}" class="w-10">
+                                    <img src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}" class="w-10">
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $user->roles->pluck('name')->implode(', ') }}
