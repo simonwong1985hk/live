@@ -33,6 +33,12 @@ class UpdateUserRequest extends FormRequest
                 'max:255',
                 Rule::unique('users')->ignore($this->user),
             ],
+            'phone' => [
+                'nullable',
+                'string',
+                'max:255',
+                Rule::unique('users')->ignore($this->user),
+            ],
             'profile_photo_path' => 'nullable|image|mimes:bpm,gif,jpeg,jpg,jpe,png,svg,svgz|max:2048',
             'roles' => 'required|array',
         ];

@@ -26,6 +26,11 @@
                         </div>
 
                         <div class="mt-4">
+                            <x-jet-label for="phone" value="{{ __('Phone') }}" />
+                            <x-jet-input id="phone" class="block mt-1 w-full" type="tel" name="phone" :value="old('phone')" pattern="[0-9]{8}" placeholder="12345678" autocomplete="phone" />
+                        </div>
+
+                        <div class="mt-4">
                             <x-jet-label for="profile_photo_path" value="{{ __('Profile Photo') }}" />
                             <x-jet-input id="profile_photo_path" class="mt-1 text-gray-900 border border-gray-300 cursor-pointer" type="file" name="profile_photo_path" :value="old('profile_photo_path')" />
                         </div>

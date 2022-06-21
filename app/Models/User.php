@@ -26,6 +26,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name',
         'email',
+        'phone',
         'email_verified_at',
         'password',
         'profile_photo_path',
@@ -70,6 +71,7 @@ class User extends Authenticatable implements MustVerifyEmail
                 fn ($query) =>
                 $query->where('name', 'like', '%' . $search . '%')
                     ->orWhere('email', 'like', '%' . $search . '%')
+                    ->orWhere('phone', 'like', '%' . $search . '%')
                     ->orWhereHas('roles', fn ($query) =>
                         $query->where('name', 'like', '%' . $search . '%')
                     )

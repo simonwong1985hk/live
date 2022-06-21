@@ -26,6 +26,11 @@
                             <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email') ?? $user->email" required autocomplete="email" />
                         </div>
 
+                        <div class="mt-4">
+                            <x-jet-label for="phone" value="{{ __('Phone') }}" />
+                            <x-jet-input id="phone" class="block mt-1 w-full" type="tel" name="phone" :value="old('phone') ?? $user->phone" pattern="[0-9]{8}" placeholder="12345678" autocomplete="phone" />
+                        </div>
+
                         <div class="mt-4 flex flex-wrap">
                             <div>
                                 <x-jet-label for="profile_photo_path" value="{{ __('Profile Photo') }}" />

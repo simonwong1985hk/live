@@ -28,6 +28,9 @@
                                     Email
                                 </th>
                                 <th scope="col" class="px-6 py-3">
+                                    Phone
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     Avatar
                                 </th>
                                 <th scope="col" class="px-6 py-3">
@@ -52,6 +55,9 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $user->email }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $user->phone ?? '-' }}
                                 </td>
                                 <td class="px-6 py-4">
                                     <img src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}" class="w-10">
