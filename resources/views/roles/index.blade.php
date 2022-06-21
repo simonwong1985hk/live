@@ -25,6 +25,9 @@
                                     Name
                                 </th>
                                 <th scope="col" class="px-6 py-3">
+                                    Created At
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     <span class="sr-only">Edit</span>
                                 </th>
                             </tr>
@@ -37,6 +40,9 @@
                                 </th>
                                 <td class="px-6 py-4">
                                     {{ $role->name }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $role->created_at->diffForHumans() }}
                                 </td>
                                 <td class="px-6 py-4">
                                     <a href="{{ route('roles.edit', $role) }}" class="font-medium text-blue-600 hover:underline">Edit</a>

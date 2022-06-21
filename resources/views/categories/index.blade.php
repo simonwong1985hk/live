@@ -28,6 +28,9 @@
                                     Slug
                                 </th>
                                 <th scope="col" class="px-6 py-3">
+                                    Created At
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     <span class="sr-only">Edit</span>
                                 </th>
                             </tr>
@@ -43,6 +46,9 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $category->slug }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $category->created_at->diffForHumans() }}
                                 </td>
                                 <td class="px-6 py-4">
                                     <a href="{{ route('categories.edit', $category) }}" class="font-medium text-blue-600 hover:underline">Edit</a>
