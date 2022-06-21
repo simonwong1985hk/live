@@ -32,6 +32,9 @@ class Post extends Model
                     ->orWhereHas('author', fn ($query) =>
                         $query->where('name', 'like', '%' . $search . '%')
                     )
+                    ->orWhereHas('category', fn ($query) =>
+                        $query->where('name', 'like', '%' . $search . '%')
+                    )
             )
         );
     }
