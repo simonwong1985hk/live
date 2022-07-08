@@ -1,9 +1,6 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 
-const domain = 'live.test';
-const homedir = require('os').homedir();
-
 export default defineConfig({
     plugins: [
         laravel([
@@ -23,13 +20,10 @@ export default defineConfig({
         }
     ],
     server: {
-        https: {
-            key: homedir + '/.config/valet/Certificates/' + domain + '.key',
-            cert: homedir + '/.config/valet/Certificates/' + domain + '.crt',
-        },
-        host: domain,
+        https: true,
+        host: 'localhost',
         hmr: {
-            host: domain,
+            host: 'localhost',
         },
     },
 });
