@@ -63,7 +63,7 @@
                                     <img src="{{ asset($post->thumbnail) }}" alt="{{ $post->title }}" class="w-10">
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $post->body }}
+                                    {{ Str::words($post->body, 10) }}
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $post->author->name }}
