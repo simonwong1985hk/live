@@ -45,11 +45,11 @@
                                     {{ $role->created_at->diffForHumans() }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="{{ route('roles.edit', $role) }}" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                    <x-link href="{{ route('roles.edit', $role) }}">Edit</x-link>
                                     <form method="POST" action="{{ route('roles.destroy', $role) }}" class="inline-block">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" onclick="return confirm('Are you sure?')" class="font=medium text-red-600 hover:underline">Delete</button>
+                                        <x-jet-button type="submit" onclick="return confirm('Are you sure?')">Delete</x-jet-button>
                                     </form>
                                 </td>
                             </tr>
