@@ -44,7 +44,7 @@
                                 <td class="px-6 py-4">
                                     {{ $role->created_at->diffForHumans() }}
                                 </td>
-                                <td class="px-6 py-4">
+                                <td class="px-6 py-4 space-y-1">
                                     <x-link href="{{ route('roles.edit', $role) }}">Edit</x-link>
                                     <form method="POST" action="{{ route('roles.destroy', $role) }}" class="inline-block">
                                         @csrf
