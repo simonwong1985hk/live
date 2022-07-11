@@ -21,9 +21,9 @@ Route::get('/', function () {
     return redirect(app()->getLocale());
 });
 
-Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|hk']], function () {
+Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|hk'], 'as' => 'frontend.'], function () {
     Route::get('/', function () {
-        return view('welcome');
+        return view('frontend.home');
     })->name('home');
 });
 
