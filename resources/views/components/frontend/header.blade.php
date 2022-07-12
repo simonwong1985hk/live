@@ -54,22 +54,54 @@
 
                 <!-- account trigger -->
                 <button type="button" class="ml-4 inline-flex justify-center items-center text-sm cursor-pointer hover:text-white" data-dropdown-toggle="account-dropdown-menu">
+                    @auth
+                    <img src="{{ auth()->user()->profile_photo_url }}" alt="{{ auth()->user()->name }}" class="h-5 mr-1 rounded-full" />
+                    <span class="hidden md:inline text-white">{{ auth()->user()->name }}</span>
+                    @else
                     <x-svg.user class="h-4 mr-1 fill-gray-400 hover:fill-white" />
                     <span class="hidden md:inline">{{ __('Account') }}</span>
+                    @endauth
                 </button>
 
                 <!-- account dropdown -->
                 <div class="hidden bg-black z-20" id="account-dropdown-menu">
+                    @auth
+                    @can('admin')
+                    <!-- dashboard -->
+                    <a href="{{ route('dashboard') }}" class="block py-2 px-4 text-sm hover:text-white">
+                        <div class="inline-flex items-center justify-between">
+                            <x-svg.hammer class="h-4 mr-1 fill-gray-400" />{{ __('Dashboard') }}
+                        </div>
+                    </a>
+                    @else
+                    <!-- profile -->
+                    <a href="{{ route('profile.show') }}" class="block py-2 px-4 text-sm hover:text-white">
+                        <div class="inline-flex items-center justify-between">
+                            <x-svg.profile class="h-4 mr-1 fill-gray-400" />{{ __('Profile') }}
+                        </div>
+                    </a>
+                    @endcan
+                    <!-- logout -->
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="flex py-2 px-4 text-sm hover:text-white">
+                        <x-svg.logout class="h-4 mr-1 fill-gray-400" />{{ __('Logout') }}
+                        </button>
+                    </form>
+                    @else
+                    <!-- login -->
                     <a href="{{ route('login') }}" class="block py-2 px-4 text-sm hover:text-white">
                         <div class="inline-flex items-center justify-between">
                             <x-svg.login class="h-4 mr-1 fill-gray-400" />{{ __('Login') }}
                         </div>
                     </a>
+                    <!-- register -->
                     <a href="{{ route('register') }}" class="block py-2 px-4 text-sm hover:text-white">
                         <div class="inline-flex items-center">
                             <x-svg.register class="h-4 mr-1 fill-gray-400" />{{ __('Register') }}
                         </div>
                     </a>
+                    @endauth
                 </div>
 
                 <!-- mobile menu trigger -->
