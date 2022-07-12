@@ -23,9 +23,11 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <x-frontend.menu />
+        <x-frontend.header />
 
-        {{ $slot }}
+        <main class="max-w-screen-xl w-full mx-auto px-4">
+            {{ $slot }}
+        </main>
 
         <!-- Flowbite Scripts -->
         <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>

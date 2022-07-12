@@ -4,9 +4,15 @@
     "Password": "密碼",
     "Remember me": "記住我",
     "Forgot your password?": "忘記密碼？",
+    "Account": "帳戶",
     "Log in": "登入",
+    "Login": "登入",
     "Name": "姓名",
     "Confirm Password": "確認密碼",
     "Already registered?": "已經登記？",
-    "Register": "登記"
+    "Register": "登記",
+    "Home": "首頁",
+    "Blog": "日誌",
+    "About": "關於我們",
+    "Contact": "聯絡我們"
 }

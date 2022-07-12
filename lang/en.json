@@ -4,9 +4,15 @@
     "Password": "Password",
     "Remember me": "Remember me",
     "Forgot your password?": "Forgot your password?",
+    "Account": "Account",
     "Log in": "Log in",
+    "Login": "Login",
     "Name": "Name",
     "Confirm Password": "Confirm Password",
     "Already registered?": "Already registered?",
-    "Register": "Register"
+    "Register": "Register",
+    "Home": "Home",
+    "About": "About",
+    "Blog": "Blog",
+    "Contact": "Contact"
 }
