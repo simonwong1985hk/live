@@ -37,7 +37,7 @@
                 <!-- language dropdown -->
                 <div class="hidden bg-black z-20" id="language-dropdown-menu">
                     @foreach (config('app.locales') as $locale)
-                    <a href="{{ route(Route::currentRouteName(), ['locale' => $locale]) }}" class="block py-2 px-4 text-sm hover:text-white">
+                    <a href="{{ route(Route::currentRouteName(), array_merge(request()->route()->parameters(), ['locale' => $locale])) }}" class="block py-2 px-4 text-sm hover:text-white">
                         <div class="inline-flex items-center">
                             @switch($locale)
                             @case('en')
