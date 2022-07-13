@@ -22,14 +22,23 @@ Route::get('/', function () {
     return redirect(app()->getLocale());
 });
 
+/**
+ * Frontend Routes
+ */
 Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|hk'], 'as' => 'frontend.'], function () {
+    // home
     Route::get('/', function () {
         return view('frontend.home');
     })->name('home');
 
-    Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+    // blog
+    Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+    Route::get('/blog/{post}', [BlogController::class, 'show'])->name('blog.show');
 });
 
+/**
+ * Backend Routes
+ */
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

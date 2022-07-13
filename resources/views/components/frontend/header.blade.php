@@ -1,4 +1,4 @@
-<header class="bg-black text-gray-400" x-data="{ navIsOpen: false, searchIsOpen: false, search: '', }" x-trap.inert.noscroll="navIsOpen" @keydown.window.escape="navIsOpen = false" @click.away="navIsOpen = false">
+<header class="bg-black text-gray-400 mb-10" x-data="{ navIsOpen: false, searchIsOpen: false, search: '', }" x-trap.inert.noscroll="navIsOpen" @keydown.window.escape="navIsOpen = false" @click.away="navIsOpen = false">
     <div class="max-w-screen-2xl mx-auto w-full lg:py-2">
         <div class="max-w-screen-xl mx-auto px-4 flex items-center justify-between">
             <!-- logo -->
@@ -15,7 +15,7 @@
             <ul class="hidden md:flex md:items-center md:justify-center md:gap-6 lg:gap-10">
                 <li><a href="/" class="hover:text-white">{{ __('Home') }}</a></li>
                 <li><a href="/" class="hover:text-white">{{ __('About') }}</a></li>
-                <li><a href="{{ route('frontend.blog') }}" class="hover:text-white">{{ __('Blog') }}</a></li>
+                <li><a href="{{ route('frontend.blog.index') }}" class="hover:text-white">{{ __('Blog') }}</a></li>
                 <li><a href="/" class="hover:text-white">{{ __('Contact') }}</a></li>
             </ul>
 
@@ -126,7 +126,7 @@
                 <ul>
                     <li><a class="block w-full py-2 hover:text-white" href="/">{{ __('Home') }}</a></li>
                     <li><a class="block w-full py-2 hover:text-white" href="/">{{ __('About') }}</a></li>
-                    <li><a class="block w-full py-2 hover:text-white" href="{{ route('frontend.blog') }}">{{ __('Blog') }}</a></li>
+                    <li><a class="block w-full py-2 hover:text-white" href="{{ route('frontend.blog.index') }}">{{ __('Blog') }}</a></li>
                     <li><a class="block w-full py-2 hover:text-white" href="/">{{ __('Contact') }}</a></li>
                 </ul>
             </div>

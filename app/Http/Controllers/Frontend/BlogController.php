@@ -17,6 +17,11 @@ class BlogController extends Controller
             ->simplePaginate(10)
             ->withQueryString();
 
-        return view('frontend.blog', ['posts' => $posts]);
+        return view('frontend.blog.index', ['posts' => $posts]);
+    }
+
+    public function show($locale, Post $post)
+    {
+        return view('frontend.blog.show', ['post' => $post]);
     }
 }

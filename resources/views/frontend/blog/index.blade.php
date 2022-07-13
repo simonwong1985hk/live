@@ -1,19 +1,19 @@
 <x-frontend.layout>
-    <div class="container mx-auto px-4 py-4 lg:max-w-screen-sm">
+    <div class="container mx-auto px-4 lg:max-w-screen-sm">
         @foreach ($posts as $post)
-        <a class="no-underline duration-300 block shadow-lg hover:shadow-xl hover:-translate-y-2 w-full mb-10 p-5 rounded" href="#">
+        <a class="no-underline duration-300 block shadow-lg hover:shadow-xl hover:-translate-y-2 w-full mb-10 p-5 rounded" href="{{ route('frontend.blog.show', $post) }}">
             <!-- thumbnail -->
-            <div class="block bg-cover bg-center bg-no-repeat w-full h-48 mb-5" style="background-image: url('{{ $post->thumbnail }}')">
-            </div>
+            <div class="block bg-cover bg-center bg-no-repeat w-full h-48 mb-5" style="background-image: url('{{ asset($post->thumbnail) }}')"></div>
+
             <div class="flex flex-col justify-between flex-1">
                 <div>
                     <!-- title -->
-                    <h2 class="font-sans leading-normal block mb-6">
+                    <h1 class="font-sans block mb-5 text-3xl">
                         {{ $post->title }}
-                    </h2>
+                    </h1>
 
                     <!-- body -->
-                    <p class="mb-6 font-serif leading-loose">
+                    <p class="mb-5 font-serif leading-loose">
                         {{ Str::words($post->body, 30) }}
                     </p>
                 </div>
@@ -32,5 +32,4 @@
         <!-- pagination -->
         {{ $posts->links() }}
     </div>
-
 </x-frontend.layout>
