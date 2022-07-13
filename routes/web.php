@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -25,6 +26,8 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|hk'], 'as' => 
     Route::get('/', function () {
         return view('frontend.home');
     })->name('home');
+
+    Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 });
 
 Route::middleware([

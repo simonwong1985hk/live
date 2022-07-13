@@ -15,7 +15,7 @@
             <ul class="hidden md:flex md:items-center md:justify-center md:gap-6 lg:gap-10">
                 <li><a href="/" class="hover:text-white">{{ __('Home') }}</a></li>
                 <li><a href="/" class="hover:text-white">{{ __('About') }}</a></li>
-                <li><a href="/" class="hover:text-white">{{ __('Blog') }}</a></li>
+                <li><a href="{{ route('frontend.blog') }}" class="hover:text-white">{{ __('Blog') }}</a></li>
                 <li><a href="/" class="hover:text-white">{{ __('Contact') }}</a></li>
             </ul>
 
@@ -126,7 +126,7 @@
                 <ul>
                     <li><a class="block w-full py-2 hover:text-white" href="/">{{ __('Home') }}</a></li>
                     <li><a class="block w-full py-2 hover:text-white" href="/">{{ __('About') }}</a></li>
-                    <li><a class="block w-full py-2 hover:text-white" href="/">{{ __('Blog') }}</a></li>
+                    <li><a class="block w-full py-2 hover:text-white" href="{{ route('frontend.blog') }}">{{ __('Blog') }}</a></li>
                     <li><a class="block w-full py-2 hover:text-white" href="/">{{ __('Contact') }}</a></li>
                 </ul>
             </div>

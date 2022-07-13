@@ -21,7 +21,7 @@ class PostFactory extends Factory
     {
         $title = $this->faker->sentence;
         $slug = Str::slug($title, '-');
-        $body = $this->faker->paragraph;
+        $body = $this->faker->paragraphs(4, true);
         $user_id = User::all()->random();
         $category_id = Category::all()->random();
 
