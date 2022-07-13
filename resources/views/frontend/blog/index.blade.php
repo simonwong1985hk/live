@@ -8,12 +8,12 @@
             <div class="flex flex-col justify-between flex-1">
                 <div>
                     <!-- title -->
-                    <h1 class="font-sans block mb-5 text-3xl">
+                    <h1 class="font-serif block mb-5 text-3xl">
                         {{ $post->title }}
                     </h1>
 
                     <!-- body -->
-                    <p class="mb-5 font-serif leading-loose">
+                    <p class="mb-5 font-sans leading-loose">
                         {{ Str::words($post->body, 30) }}
                     </p>
                 </div>

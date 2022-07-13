@@ -4,7 +4,7 @@
         <div class="block bg-cover bg-center bg-no-repeat w-full h-48 mb-5" style="background-image: url('{{ asset($post->thumbnail) }}')"></div>
 
         <!-- title -->
-        <h1 class="mb-5 font-sans text-4xl">
+        <h1 class="mb-5 font-serif text-4xl">
             {{ $post->title }}
         </h1>
 
@@ -14,7 +14,7 @@
         </div>
 
         <!-- body -->
-        <div class="mt-5 leading-loose flex flex-col justify-center items-center font-serif">
+        <div class="mt-5 leading-loose flex flex-col justify-center items-center font-sans">
             {{ $post->body }}
         </div>
 
