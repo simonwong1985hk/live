@@ -18,5 +18,7 @@
     "About": "關於我們",
     "Contact": "聯絡我們",
     "Message": "訊息",
-    "Send": "送出"
+    "Send": "送出",
+    "Failed to send message.": "訊息送出失敗.",
+    "Message sent successfully.": "訊息成功送出."
 }
