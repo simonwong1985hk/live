@@ -16,7 +16,7 @@
                 <li><a href="/" class="hover:text-white">{{ __('Home') }}</a></li>
                 <li><a href="/" class="hover:text-white">{{ __('About') }}</a></li>
                 <li><a href="{{ route('frontend.blog.index') }}" class="hover:text-white">{{ __('Blog') }}</a></li>
-                <li><a href="/" class="hover:text-white">{{ __('Contact') }}</a></li>
+                <li><a href="{{ route('frontend.contact') }}" class="hover:text-white">{{ __('Contact') }}</a></li>
             </ul>
 
             <div class="flex-1 flex items-center justify-end">
@@ -127,7 +127,7 @@
                     <li><a class="block w-full py-2 hover:text-white" href="/">{{ __('Home') }}</a></li>
                     <li><a class="block w-full py-2 hover:text-white" href="/">{{ __('About') }}</a></li>
                     <li><a class="block w-full py-2 hover:text-white" href="{{ route('frontend.blog.index') }}">{{ __('Blog') }}</a></li>
-                    <li><a class="block w-full py-2 hover:text-white" href="/">{{ __('Contact') }}</a></li>
+                    <li><a class="block w-full py-2 hover:text-white" href="{{ route('frontend.contact') }}">{{ __('Contact') }}</a></li>
                 </ul>
             </div>
         </nav>

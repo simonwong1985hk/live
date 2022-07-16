@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Frontend\BlogController;
+use App\Http\Livewire\Frontend\Contact;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -34,6 +35,9 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|hk'], 'as' => 
     // blog
     Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
     Route::get('/blog/{post}', [BlogController::class, 'show'])->name('blog.show');
+
+    // contact
+    Route::get('/contact', Contact::class)->name('contact');
 });
 
 /**
