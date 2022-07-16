@@ -34,6 +34,12 @@
                     <x-svg.send class="w-4 mr-2" fill="currentColor" />
                     {{ __('Send') }}
                 </button>
+                @error('failure')
+                <p class="text-red-500 text-sm font-semibold mt-2">{{ $message }}</p>
+                @enderror
+                @if (session()->has('success'))
+                <p class="text-green-500 text-sm font-semibold mt-2">{{ __(session('success')) }}</p>
+                @endif
             </div>
         </form>
     </div>

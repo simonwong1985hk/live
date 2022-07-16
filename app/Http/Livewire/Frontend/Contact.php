@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Frontend;
 
+use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class Contact extends Component
@@ -40,7 +42,20 @@ class Contact extends Component
     // submit handler
     public function send()
     {
-        $this->validate();
+        $validated = $this->validate();
+
+        // sending mail
+        try {
+            Mail::to(config('mail.from.address'))->send(new ContactMail($validated));
+        } catch (\Exception $e) {
+            $this->addError('failure', trans('Failed to send message.'));
+            return;
+        }
+
+        // reset public property values to their initial state after mail sent
+        $this->reset();
+
+        return back()->with('success', 'Message sent successfully.');
     }
 
     // render the view
