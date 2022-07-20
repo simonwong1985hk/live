@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Frontend;
 
 use App\Mail\ContactMail;
+use App\Rules\Recaptcha;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
@@ -12,6 +13,15 @@ class Contact extends Component
     public $name;
     public $email;
     public $message;
+    public $recaptcha;
+
+    // event listeners
+    protected $listeners = ['getToken'];
+
+    public function getToken($token)
+    {
+        $this->recaptcha = $token;
+    }
 
     // initializing properties
     public function mount()
@@ -30,6 +40,7 @@ class Contact extends Component
             'name' => 'required|string|max:255',
             'email' => 'required|string|max:255|email',
             'message' => 'required|string|max:255',
+            'recaptcha' => ['required', new Recaptcha],
         ];
     }
 

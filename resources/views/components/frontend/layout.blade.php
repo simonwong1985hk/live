@@ -23,6 +23,9 @@
 
         <!-- Styles & Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <!-- Other Scripts -->
+        {{ $scripts ?? '' }}
     </head>
     <body class="font-sans antialiased bg-gray-100">
         <x-frontend.header />
